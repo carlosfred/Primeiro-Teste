@@ -1,0 +1,63 @@
+.ui-header{
+   background: #4169E1 !important;
+}
+
+.ui-header .ui-title {
+   font-family:verdana;
+   font-size:14px;
+   font-weight: normal;
+   color:#ffffff;
+}
+
+.ui-footer{
+   background: #4169E1 !important;
+   text-align:center;
+}
+
+.btAzul {
+   background: #4169E1 !important;
+   border:none;
+}
+
+.titEnigma {
+   text-align:center;
+   font-size:16px;
+   background-color:#ffffff;
+   color:#4E9EC7;
+   margin: 20px 5px 5px 5px;
+   padding:10px;
+   border-radius: 25px;
+   border: 2px solid #4E9EC7;
+   font-weight:bold;
+}
+
+.enumEnigma {
+   text-align:justify;
+   font-size:14px;
+   color:#000;
+   margin: 20px 5px 5px 5px;
+   padding:10px;
+   font-weight:normal;
+}
+
+.respEnigma {
+   text-align:justify;
+   font-size:14px;
+   color:#000;
+   margin: 20px 5px 5px 5px;
+   padding:10px;
+   font-weight:normal;
+}
+
+#clsLogo {
+   width: 260px;
+   height: 260px;
+   margin: 20px auto;
+}
+
+#divBotao {
+   margin-top:50px;
+   text-align:center;
+   width:100%;
+}
+
