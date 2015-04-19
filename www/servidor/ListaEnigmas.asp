@@ -32,7 +32,7 @@ Set Rst = server.CreateObject("adodb.Recordset")
 Rst.Open StrSql, Conexao
 
 While Not rst.Eof %>
-   <div class='titEnigma' id='titEnigma_<% = Rst("idEnigma") %>'><% = Server.HtmlEncode(Rst("Titulo")) %><img class="ui-btn-icon-left" src="ok.jpg"></div>
+   <div class='titEnigma' id='titEnigma_<% = Rst("idEnigma") %>'><% = Server.HtmlEncode(Rst("Titulo")) %><img class="ui-btn-icon-left" src="img/ok.jpg"></div>
    <%
    Rst.MoveNext
 Wend

@@ -2,15 +2,15 @@ $(document).ready(function(){
 
    localStorage.setItem("UsuarioLogado","0")
    localStorage.setItem("EnigmaAtual","0")
+
    $.mobile.loading().hide();
-   carregaEnigma('-1');
 
    $("#btProx").click(function() {
-      carregaEnigma('P');
+      carregaEnigma('P' + localStorage.getItem("EnigmaAtual"));
    });
 
    $("#btAnt").click(function() {
-      carregaEnigma('A');
+      carregaEnigma('A' + localStorage.getItem("EnigmaAtual"));
    });
 
    $("#btLista").click(function() {
@@ -19,10 +19,13 @@ $(document).ready(function(){
 
    $("#btLoginfb").click(function() {
       localStorage.setItem("UsuarioLogado","1");
+      carregaEnigma('U');
+
    });
 
    $("#btAnonimo").click(function() {
       localStorage.setItem("UsuarioLogado","0");
+      carregaEnigma('P0');
    });
 
    function listaEnigmas() {
@@ -31,7 +34,7 @@ $(document).ready(function(){
          $("#divEnigma").html(data);
          $(".titEnigma").click(function() {
             var nId = $(this).attr('id').substring(10)
-            carregaEnigma(nId)
+            carregaEnigma('I' + nId)
          });
       })
    }
@@ -39,11 +42,7 @@ $(document).ready(function(){
    function carregaEnigma(nId) {
       $("#divEnigma").html("Carregando...");
       var nUrl
-      if (nId == "P" || nId == "A") {
-         nUrl = "http://www.w3ideias.com.br/enigma/carregaEnigma.asp?id=" + localStorage.getItem("EnigmaAtual") + "&dir=" + nId + "&us=" + localStorage.getItem("UsuarioLogado")
-      } else {
-         nUrl = "http://www.w3ideias.com.br/enigma/carregaEnigma.asp?id=" + nId
-      }
+      nUrl = "http://www.w3ideias.com.br/enigma/carregaEnigma.asp?id=" + nId + "&us=" + localStorage.getItem("UsuarioLogado")
       $.get(nUrl, {}, function(data) {
          $("#divEnigma").html(data);
          localStorage.setItem("EnigmaAtual",$("#enigmaAtual").val());
@@ -53,7 +52,7 @@ $(document).ready(function(){
                scrollTop: $(window).scrollTop() + 100
             })
             // Grava a informação que a resposta deste enigma foi vista
-            nUrl = "http://www.w3ideias.com.br/enigma/gravaVerEnigma.asp?en=" + nEnigmaAtual + "&us=" + localStorage.getItem("UsuarioLogado")
+            nUrl = "http://www.w3ideias.com.br/enigma/gravaVerEnigma.asp?en=" + localStorage.getItem("EnigmaAtual") + "&us=" + localStorage.getItem("UsuarioLogado")
             $.get(nUrl, {}, function(data) {})
          });
       })

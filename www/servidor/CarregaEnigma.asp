@@ -2,29 +2,50 @@
 
 <%
 nId = Request("id")
-nDir = Request("dir")
+nUsuario = Request("us")
 
 if nId = "" Then
-   nId = "0"
-   nDir = ">"
-else
-   if nDir = "P" then
-      nDir = ">"
-      nProxEnigma = "999999"
-   elseif nDir = "A" then
-      nDir = "<"
-      nProxEnigma = "0"
-   else
-      nDir = "="
-      nProxEnigma = nId
+   nId = "P0"
+end if
+
+Operacao = Mid(nId,1,1)
+
+nId = Mid(nId,2)
+
+if Operacao = "U" Then
+
+   StrSql = "Select DesafiosRealizados From tbEnigmasUsuarios Where idUsuario = " + nUsuario
+   Set Rst = Server.CreateObject("adodb.Recordset")
+   Rst.Open StrSql, Conexao
+
+   if Not Rst.Eof then
+      nEnigmasRealizados = Rst("DesafiosRealizados")
    end if
+
+   Rst.Close
+   Set Rst = Nothing
+
+   StrSql = "Select Top 1 idEnigma, Titulo, Enigma, Resposta From tbEnigmas Where idEnigma Not in (0" + nEnigmasRealizados + "0) Order By idEnigma"
+
+else
+
+   if Operacao = "P" Then
+      Sinal = ">"
+      nProxEnigma = "99999"
+   elseif Operacao = "A" then
+      Sinal = "<"
+      nProxEnigma = "0"
+   elseif Operacao = "I" then
+      Sinal = "="
+   end if
+
+   StrSql = "Select Top 1 idEnigma, Titulo, Enigma, Resposta From tbEnigmas Where idEnigma " + Sinal + " " + nId + " Order By idEnigma "
+   if Operacao = "A" Then
+      StrSql = StrSql + " Desc"
+   end if
+
 end if
 
-StrSql = "Select Top 1 idEnigma, Titulo, Enigma, Resposta From tbEnigmas Where idEnigma " + nDir + " " + nId + " Order By idEnigma "
-
-if nDir = "<" Then
-   StrSql = StrSql + " Desc"
-end if
 Set Rst = Server.CreateObject("adodb.Recordset")
 Rst.Open StrSql, conexao
 
