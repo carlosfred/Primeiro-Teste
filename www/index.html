@@ -23,9 +23,10 @@
 
    var login = function () {
       if (!window.cordova) {
-         var appId = '305528339609022';
+         var appId = '1387101938283090';
          facebookConnectPlugin.browserInit(appId);
       }
+
       facebookConnectPlugin.login( ["email"],
          function (response) { alert(JSON.stringify(response)) },
          function (response) { alert(JSON.stringify(response)) });
@@ -60,6 +61,13 @@
          <a href="#" id="btLoginfb" onclick="login();"><img src="img/loginfb.png"></a>
          <a href="#enigmas" id="btAnonimo"><img src="img/loginvisitante.png"></a>
       </div>
+
+      <div class="event listening button" onclick="login();">Logar com Facebook</div>
+      <div class="event listening button" onclick="apiTest();">Mostrar Dados</div>
+      <div class="event listening button" onclick="logout();">Fazer Logout</div>
+
+
+
    </div><!-- /content -->
 </div><!-- /page -->
 
