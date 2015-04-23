@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "br.com.w3ideias.matemagica"
+        version   = "0.0.1">
+
+    <name>matemagica</name>
+
+    <description>
+        Prove que você sabe tudo de matemática. Use a lógica e decifre os enigmas propostos..
+    </description>
+
+    <author href="http://w3ideias.com.br" email="contato@w3ideais.com.br">
+        w3Ideias
+    </author>
+
+    <!--
+        If you do not want any permissions to be added to your app, add the
+        following tag to your config.xml; you will still have the INTERNET
+        permission on your app, which PhoneGap requires.
+    -->
+    <preference name="permissions"                value="none"/>
+
+    <!-- Define app icon for each platform. -->
+    <icon src="icon.png" />
+
+   <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
+      <param name="APP_ID" value="1387101938283090" />
+      <param name="APP_NAME" value="Matemagica" />
+   </gap:plugin>
+
+</widget>
