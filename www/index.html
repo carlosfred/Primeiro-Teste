@@ -17,6 +17,37 @@
 
    <script src="js/enigma.js"></script>
 
+   <script>
+
+   var dados;
+
+   var login = function () {
+      if (!window.cordova) {
+         var appId = '305528339609022';
+         facebookConnectPlugin.browserInit(appId);
+      }
+      facebookConnectPlugin.login( ["email"],
+         function (response) { alert(JSON.stringify(response)) },
+         function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var apiTest = function () {
+        facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
+            function (response) {
+              dados = response;
+              alert("sucesso !!!"+JSON.stringify(response));
+            },
+            function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var logout = function () {
+        facebookConnectPlugin.logout(
+            function (response) { alert(JSON.stringify(response)) },
+            function (response) { alert(JSON.stringify(response)) });
+    }
+
+   </script>
+
 </head>
 <body>
 
@@ -26,7 +57,7 @@
          <img src="img/logo.png">
       </div>
       <div id="divBotao">
-         <a href="#enigmas" id="btLoginfb"><img src="img/loginfb.png"></a>
+         <a href="#" id="btLoginfb" onclick="login();><img src="img/loginfb.png"></a>
          <a href="#enigmas" id="btAnonimo"><img src="img/loginvisitante.png"></a>
       </div>
    </div><!-- /content -->
@@ -82,6 +113,8 @@
    (adsbygoogle = window.adsbygoogle || []).push({});
    </script>
 </div>
+
+<script type="text/javascript" src="cordova.js"></script>
 
 </body>
 </html>

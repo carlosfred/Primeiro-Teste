@@ -8,6 +8,8 @@
 
     <name>matemagica</name>
 
+    <content src="index.html" />
+
     <description>
         Prove que voce sabe tudo de matematica. Use a logica e decifre os enigmas propostos..
     </description>
