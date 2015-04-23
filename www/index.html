@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
    <link rel="stylesheet" href="css/estilo.css">
 
+
    <!-- Include the jQuery library -->
    <script src="js/jquery-1.11.2.min.js"></script>
 
@@ -31,6 +32,28 @@
    </div><!-- /content -->
 </div><!-- /page -->
 
+<div data-role="page" id="login">
+   <div data-role="header" data-position="fixed">
+      <h1>Login</h1>
+   </div><!-- /header -->
+   <div role="main" class="ui-content">
+      <form method="post" action="login.asp">
+         <div class="ui-field-contain">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" maxlength="100">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" maxlength="10">
+            <input type="checkbox" name="lembrar" id="lembrar" value="1">
+            <label for="lembrar">Lembrar de mim</label><br>
+         </div>
+         <div id="divBotao">
+            <input type="submit" data-icon="check" data-iconpos="right" data-inline="true" value=" Entrar ">
+         </div>
+      </form>
+
+   </div><!-- /content -->
+</div><!-- /page -->
+
 <div data-role="page" id="enigmas">
    <div data-role="header" data-position="fixed">
       <h1>Enigmas</h1>
@@ -46,6 +69,19 @@
       <a href="" id="btProx" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext btAzul"></a>
    </div><!-- /footer -->
 </div><!-- /page -->
+
+<div data-role="page" id="adsense">
+   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <!-- toApps -->
+   <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-6390611504828580"
+        data-ad-slot="8444344048"
+        data-ad-format="auto"></ins>
+   <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+</div>
 
 </body>
 </html>
