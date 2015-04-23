@@ -1,12 +1,29 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "br.com.w3ideias.matemagica"
+        version   = "0.0.1">
+
+    <name>matemagica</name>
+
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Prove que voce sabe tudo de matematica. Use a logica e decifre os enigmas propostos..
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+
+    <author href="http://w3ideias.com.br" email="contato@w3ideais.com.br">
+        w3Ideias
     </author>
-    <content src="index.html" />
-    <access origin="*" />
+
+    <!--
+        If you do not want any permissions to be added to your app, add the
+        following tag to your config.xml; you will still have the INTERNET
+        permission on your app, which PhoneGap requires.
+    -->
+    <preference name="permissions"                value="none"/>
+
+    <!-- Define app icon for each platform. -->
+    <icon src="icon.png" />
+
 </widget>
